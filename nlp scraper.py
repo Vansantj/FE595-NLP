@@ -81,7 +81,7 @@ def getFiles():
 def getSentimentList(data):
     data['Blob'] = data['Purpose'].apply(lambda x: TextBlob(x))
     data['Sentiment Score'] = data['Blob'].apply(lambda x: x.sentiment.polarity)
-    return data.sort_values(by='Sentiment Score')
+    return data.sort_values(by='Sentiment Score',ascending=False)
 if __name__ == '__main__':
     data = pd.DataFrame()
     data = getFiles()
